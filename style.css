@@ -1,0 +1,125 @@
+.background{
+	background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.roundContainer{
+	display: flex;
+	justify-content: center;
+}
+
+.round{
+	text-align: center;
+	font-size: 60px;
+	color: #FF4500;
+	margin-top: 35px;
+	margin-right: 35px;
+}
+
+.roundNumber{
+	text-align: center;
+	font-size: 60px;
+	color: #FF4500;
+	margin-top: 35px;
+}
+
+.weapons{
+	display: flex;
+	gap: 100px;
+	justify-content: center;
+
+}
+
+.weaponRock{
+	height: 130px;
+	width: 130px;
+	background: white;
+	border-radius: 12px;
+	background-image: url(images/rock.jpg);
+	background-position: 46% 30%;
+	background-size: 116%;
+	border-style: solid;
+}
+
+.weaponPaper{
+	height: 130px;
+	width: 130px;
+	background: white;
+	border-radius: 12px;
+	background-image: url(images/paper.jpg);
+	background-position: 30% 51%;
+	background-size: 114%;
+	border-style: solid;
+}
+
+.weaponScissors{
+	height: 130px;
+	width: 130px;
+	background: white;
+	border-radius: 12px;
+	background-image: url(images/scissors.jpg);
+	background-position: 45% 53%;
+	background-size: 119%;
+	border-style: solid;
+}
+
+.weaponRock:active, .weaponPaper:active, .weaponScissors:active{
+	transform: scaleX(1.1) scaleY(1.1);
+}
+
+.select{
+	text-align: center;
+	font-size: 50px;
+	color: white;
+	margin-top: 18px;
+    margin-bottom: 39px;
+}
+
+.result{
+	text-align: center;
+	font-size: 50px;
+	color: violet;
+	margin: 35px;
+}
+
+.scores{
+	display: flex;
+	gap: 100px;
+	justify-content: center;
+}
+
+.scoresContainer{
+	height: 130px;
+	width: 130px;
+	background: black;
+	border-radius: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.numbers{
+	font-size: 90px;
+	color: #00FF00;
+}
+
+.descriptions{
+	display: flex;
+	gap: 140px;
+	justify-content: center;
+}
+
+.playerdescription{
+	text-align: center;
+	font-size: 40px;
+	color: #00FF00;
+	margin-left: 0px;
+}
+
+.pcdescription{
+	text-align: center;
+	font-size: 40px;
+	color: #00FF00;
+	margin-right: 0px;
+}

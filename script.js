@@ -1,76 +1,95 @@
-//--------------------------INITIAL SCORE-----------------------------------//
+let playerScore = 0;
+let pcScore = 0;
+let round = 1;
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
+let result = document.querySelector("#result");
+let playerPoints = document.querySelector("#playerPoints");
+let pcPoints = document.querySelector("#pcPoints");
+let roundNum = document.querySelector("#roundNumber");
 
-let pcScore=0;
-let playerScore=0;
+rock.addEventListener("click",rockFunction);
+paper.addEventListener("click",paperFunction);
+scissors.addEventListener("click",scissorsFunction);
 
-do{
-
-//--------------------------PLAYER WEAPON SELECT---------------- -----------//
-
-let playerWeapon=prompt("select your weapon").toLowerCase(); 
-
-//--------------------------PC WEAPON SELECT--------------------------------//
-
-getComputerChoice=function(){
-    return Math.random()*10;
-};
-
-let pcWeapon;
-
-if(getComputerChoice()<=(10/3)){
-    pcWeapon="rock";
+function getComputerChoice(){
+    pcChoice = Math.random()*10;
+    if(pcChoice<10/3){
+        pcWeapon = "rock";
+    }
+    else if(pcChoice<20/3){
+        pcWeapon = "paper";
+    }
+    else{
+        pcWeapon = "scissors";
+    }
 }
-else if(getComputerChoice()<=(20/3)){
-    pcWeapon="paper";
-}
-else if(getComputerChoice()<=(30/3)){
-    pcWeapon="scissors";
+
+function updateRoundFunction(){
+    roundNum.textContent = round;
 }
 
-//--------------------------ROUND------------------------------------------//
+function updateScoreFunction(){
+    playerPoints.textContent = playerScore;
+    pcPoints.textContent = pcScore;
+}
 
-if (playerWeapon=="rock"&&pcWeapon=="paper"){
-    console.log("You loose");
-    ++pcScore;
+function resultFunction(){
+    if(pcScore>4){result.textContent = "You are dead";}
+    else if(playerScore>4){result.textContent = "You are the champion!!!";}
 }
-else if(playerWeapon=="rock"&&pcWeapon=="scissors"){
-    console.log("You win");
-    ++playerScore;
-}
-else if(playerWeapon=="paper"&&pcWeapon=="scissors"){
-    console.log("You loose");
-    ++pcScore;
-}
-else if(playerWeapon=="paper"&&pcWeapon=="rock"){
-    console.log("You win");
-    ++playerScore;
-}
-else if(playerWeapon=="scissors"&&pcWeapon=="rock"){
-    console.log("You loose");
-    ++pcScore;
-}
-else if(playerWeapon=="scissors"&&pcWeapon=="paper"){
-    console.log("You win");
-    ++playerScore;
-}
-else if(playerWeapon==pcWeapon){
-    console.log("Draw game");
-}
-else{
-    console.log("Only rock, paper or scissors allowed")
-} }
 
-
-while(playerScore<5&&pcScore<5)
-
-
-//--------------------------SCORE UPDATE------------------------------------//
-
-console.log("PC points" + ":" + pcScore);
-console.log("Player points" + ":" + playerScore);
-if(pcScore<playerScore){
-	console.log("YOU ARE THE CHAMPION");
+function winFunction(){
+        result.textContent = "You win";
+        playerScore++;
+        round++;
+        updateScoreFunction();
+        resultFunction();
+        updateRoundFunction();
 }
-else{
-	console.log("YOU ARE DEAD");
+
+function loseFunction(){
+        result.textContent = "You lose";
+        pcScore++;
+        round++;
+        updateScoreFunction();
+        resultFunction();
+        updateRoundFunction();
 }
+
+function drawFunction(){
+        result.textContent = "Draw game"
+        round++;
+        updateRoundFunction();
+}
+
+function rockFunction(){
+   if(pcScore<5 && playerScore<5){
+   playerWeapon = "rock";
+   getComputerChoice();
+   if(pcWeapon == "paper"){loseFunction();}
+   else if(pcWeapon == "scissors"){winFunction();}
+   else {drawFunction();}
+ }   
+}
+
+function paperFunction(){
+   if(pcScore<5 && playerScore<5){
+   playerWeapon = "paper";
+   getComputerChoice();
+   if(pcWeapon == "rock"){winFunction();}
+   else if(pcWeapon == "scissors"){loseFunction();}
+   else {drawFunction();}
+ }  
+}
+
+function scissorsFunction(){
+   if(pcScore<5 && playerScore<5){
+   playerWeapon = "scissors";
+   getComputerChoice();
+   if(pcWeapon == "paper"){winFunction();}
+   else if(pcWeapon == "rock"){loseFunction();}
+   else {drawFunction();}
+ }   
+}    

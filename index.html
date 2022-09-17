@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <script src="script.js"></script>
-  </head>
-  
-  
-  <body>
-    
-   
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Practice</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
 
+<body class="background">
 
+  <div class="roundContainer">
+    <div class="round">Round</div>
+    <div id = "roundNumber" class= "roundNumber">1</div>
+  </div>
+
+  <div class="select">Select your weapon</div>
+  
+  <div class="weapons">
+    <div id="rock" class="weaponRock"></div>
+    <div id="paper" class="weaponPaper"></div>
+    <div id="scissors"class="weaponScissors"></div>
+  </div>
+
+  <div id="result" class="result">Ready for battle</div>
+
+  <div class= "scores">
+     <div class="scoresContainer">
+        <div id="playerPoints" class = "numbers">0</div>
+     </div>
+     <div class="scoresContainer">
+        <div id = "pcPoints" class = "numbers">0</div>
+     </div>
+  </div>
+  <div class= "descriptions">
+    <div class= "playerdescription">Player<br>Score</div>
+    <div class= "pcdescription">Pc<br>Score</div>
+  </div>
+</body>
 </html>
